@@ -21,7 +21,11 @@ class TB_Spider:
         # 设置为开发者模式，避免被识别
         options.add_experimental_option('excludeSwitches',
                                         ['enable-automation'])
-        self.browser = webdriver.Chrome(executable_path='./chromedriver', options=options)
+        #让Chrome在root权限下跑
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--headless')
+        self.browser = webdriver.Chrome(executable_path='/home/ubuntu/soft/chromedriver', options=options)
         self.wait = WebDriverWait(self.browser, 40)
         # 初始化用户名
         self.username = username
