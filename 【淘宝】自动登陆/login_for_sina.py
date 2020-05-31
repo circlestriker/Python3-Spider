@@ -40,18 +40,23 @@ class TB_Spider:
             login_element = self.wait.until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, '.qrcode-login > .login-links > .forget-pwd')))
             login_element.click()
+            print("点击login_element")
 
             sina_login = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.weibo-login')))
             sina_login.click()
+            print("sina_login.click")
 
             weibo_user = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.username > .W_input')))
             weibo_user.send_keys(self.username)
+            print("输入用户名:%s" % self.username)
 
             sina_password = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.password > .W_input')))
             sina_password.send_keys(self.password)
+            print("输入密码")
 
             submit = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.btn_tip > a > span')))
             submit.click()
+            print("点击登录按钮")
 
             taobao_name = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,
                                                                           '.site-nav-bd > ul.site-nav-bd-l > li#J_SiteNavLogin > div.site-nav-menu-hd > div.site-nav-user > a.site-nav-login-info-nick ')))
